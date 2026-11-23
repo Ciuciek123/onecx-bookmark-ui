@@ -832,6 +832,17 @@ describe('BookmarkConfigureEffects', () => {
       })
     })
 
+    it('should cancel when dialog cannot be created', (done) => {
+      portalDialogServiceMock.openDialog.mockReturnValue(of(null) as any)
+
+      actions$.next(BookmarkConfigureActions.openDeleteDialog({ id: 'bm-1' }))
+
+      effects.deleteBookmark$.subscribe((action) => {
+        expect(action.type).toBe(BookmarkConfigureActions.deleteBookmarkCancelled.type)
+        done()
+      })
+    })
+
     it('should dispatch deleteBookmarkFailed when item to delete not found', (done) => {
       portalDialogServiceMock.openDialog.mockReturnValue(of({ button: 'primary', result: undefined }) as any)
 
