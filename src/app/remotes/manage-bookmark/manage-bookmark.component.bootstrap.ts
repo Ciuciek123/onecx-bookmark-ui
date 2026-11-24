@@ -6,10 +6,7 @@ import { ReplaySubject } from 'rxjs'
 import { AngularAuthModule } from '@onecx/angular-auth'
 import { bootstrapRemoteComponent } from '@onecx/angular-webcomponents'
 import { provideMissingTranslationHandler, provideTranslateLoader, provideTranslateService } from '@ngx-translate/core'
-import {
-  AngularAcceleratorModule,
-  providePortalDialogService
-} from '@onecx/angular-accelerator'
+import { AngularAcceleratorModule, providePortalDialogService } from '@onecx/angular-accelerator'
 import {
   MultiLanguageMissingTranslationHandler,
   OnecxTranslateLoader,
@@ -33,8 +30,8 @@ bootstrapRemoteComponent(OneCXManageBookmarkComponent, 'ocx-bookmark-manage-comp
   provideThemeConfig(),
   provideTranslationPathFromMeta(import.meta.url, 'assets/i18n/'),
   provideTranslateService({
-      defaultLanguage: 'en',
-      loader: provideTranslateLoader(OnecxTranslateLoader),
-      missingTranslationHandler: provideMissingTranslationHandler(MultiLanguageMissingTranslationHandler)
-    }),
+    defaultLanguage: 'en',
+    loader: provideTranslateLoader(OnecxTranslateLoader),
+    missingTranslationHandler: provideMissingTranslationHandler(MultiLanguageMissingTranslationHandler)
+  })
 ]).catch((err) => console.error(err))

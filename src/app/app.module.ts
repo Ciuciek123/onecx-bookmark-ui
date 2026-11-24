@@ -46,7 +46,7 @@ import { metaReducers, reducers } from './app.reducers'
       autoPause: true,
       trace: false,
       traceLimit: 75
-    }),
+    })
   ],
   providers: [
     providePermissionService(),
@@ -65,7 +65,7 @@ import { metaReducers, reducers } from './app.reducers'
       defaultLanguage: 'en',
       loader: provideTranslateLoader(OnecxTranslateLoader),
       missingTranslationHandler: provideMissingTranslationHandler(MultiLanguageMissingTranslationHandler)
-    }),
+    })
   ]
 })
 export class AppModule {}

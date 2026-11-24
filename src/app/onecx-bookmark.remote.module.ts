@@ -9,15 +9,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 
 import { AngularAuthModule } from '@onecx/angular-auth'
 import { provideMissingTranslationHandler, provideTranslateLoader, provideTranslateService } from '@ngx-translate/core'
-import { 
+import {
   MultiLanguageMissingTranslationHandler,
   OnecxTranslateLoader,
-  provideTranslationPathFromMeta, 
-  providePermissionService 
+  provideTranslationPathFromMeta,
+  providePermissionService
 } from '@onecx/angular-utils'
 import { createAppEntrypoint, initializeRouter } from '@onecx/angular-webcomponents'
 import { AppStateService, ConfigurationService } from '@onecx/angular-integration-interface'
-import { AngularAcceleratorModule} from '@onecx/angular-accelerator'
+import { AngularAcceleratorModule } from '@onecx/angular-accelerator'
 
 import { Configuration } from './shared/generated'
 import { LabelResolver } from './shared/utils/label.resolver'
