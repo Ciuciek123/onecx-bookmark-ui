@@ -2,10 +2,10 @@ import { TestBed } from '@angular/core/testing'
 import { provideHttpClient } from '@angular/common/http'
 import { provideHttpClientTesting } from '@angular/common/http/testing'
 import { BehaviorSubject, of, ReplaySubject, throwError } from 'rxjs'
-import { TranslateTestingModule } from 'ngx-translate-testing'
 import { provideMockActions } from '@ngrx/effects/testing'
 import { MockStore, provideMockStore } from '@ngrx/store/testing'
 
+import { provideTranslateTestingService } from '@onecx/angular-testing'
 import { AppStateService, PortalMessageService, UserService } from '@onecx/angular-integration-interface'
 import { AppStateServiceMock, provideAppStateServiceMock } from '@onecx/angular-integration-interface/mocks'
 import { AngularAcceleratorModule, PortalDialogService } from '@onecx/angular-accelerator'
@@ -89,14 +89,12 @@ describe('BookmarkConfigureEffects', () => {
     }
 
     await TestBed.configureTestingModule({
-      imports: [
-        AngularAcceleratorModule,
-        TranslateTestingModule.withTranslations({
+      imports: [AngularAcceleratorModule],
+      providers: [
+        ...provideTranslateTestingService({
           de: require('./src/assets/i18n/de.json'),
           en: require('./src/assets/i18n/en.json')
-        }).withDefaultLanguage('en')
-      ],
-      providers: [
+        }),
         provideHttpClient(),
         provideHttpClientTesting(),
         BookmarkConfigureEffects,

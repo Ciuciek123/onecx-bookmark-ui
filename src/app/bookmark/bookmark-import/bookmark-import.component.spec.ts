@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { provideHttpClient } from '@angular/common/http'
 import { provideHttpClientTesting } from '@angular/common/http/testing'
 import { FormsModule } from '@angular/forms'
-import { TranslateTestingModule } from 'ngx-translate-testing'
+import { provideTranslateTestingService } from '@onecx/angular-testing'
 
 import { FileSelectEvent, FileUpload, FileUploadModule } from 'primeng/fileupload'
 
@@ -26,17 +26,15 @@ describe('BookmarkImportComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        BookmarkImportComponent,
-        FormsModule,
-        FileUploadModule,
-        AngularAcceleratorModule,
-        TranslateTestingModule.withTranslations({
+      imports: [BookmarkImportComponent, FormsModule, FileUploadModule, AngularAcceleratorModule],
+      providers: [
+        ...provideTranslateTestingService({
           de: require('./src/assets/i18n/de.json'),
           en: require('./src/assets/i18n/en.json')
-        }).withDefaultLanguage('en')
-      ],
-      providers: [provideHttpClient(), provideHttpClientTesting()]
+        }),
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     }).compileComponents()
 
     fixture = TestBed.createComponent(BookmarkImportComponent)
