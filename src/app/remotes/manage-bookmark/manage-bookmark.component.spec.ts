@@ -86,12 +86,12 @@ describe('OneCXManageBookmarkComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AngularAcceleratorModule],
       providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
         ...provideTranslateTestingService({
           de: require('./src/assets/i18n/de.json'),
           en: require('./src/assets/i18n/en.json')
         }),
-        provideHttpClient(),
-        provideHttpClientTesting(),
         { provide: UserService, useValue: userServiceMock },
         { provide: AppStateService, useValue: appStateServiceMock }
       ]

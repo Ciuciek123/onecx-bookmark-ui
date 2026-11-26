@@ -1,10 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { FormsModule } from '@angular/forms'
 import { provideHttpClient } from '@angular/common/http'
 import { provideHttpClientTesting } from '@angular/common/http/testing'
-import { CheckboxModule } from 'primeng/checkbox'
 
-import { AngularAcceleratorModule } from '@onecx/angular-accelerator'
 import { provideTranslateTestingService } from '@onecx/angular-testing'
 
 import { BookmarkExportComponent } from './bookmark-export.component'
@@ -16,7 +13,7 @@ describe('BookmarkExportComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BookmarkExportComponent, FormsModule, CheckboxModule, AngularAcceleratorModule],
+      imports: [BookmarkExportComponent],
       providers: [
         ...provideTranslateTestingService({
           de: require('./src/assets/i18n/de.json'),

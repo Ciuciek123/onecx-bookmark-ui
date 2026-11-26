@@ -12,11 +12,11 @@ describe('PageNotBookmarkableDialogComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PageNotBookmarkableDialogComponent],
       providers: [
+        provideNoopAnimations(),
         ...provideTranslateTestingService({
           de: require('./src/assets/i18n/de.json'),
           en: require('./src/assets/i18n/en.json')
-        }),
-        provideNoopAnimations()
+        })
       ]
     }).compileComponents()
 
