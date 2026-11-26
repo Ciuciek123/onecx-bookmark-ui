@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { Router } from '@angular/router'
 import { provideHttpClient } from '@angular/common/http'
 import { provideHttpClientTesting } from '@angular/common/http/testing'
+import { provideNoopAnimations } from '@angular/platform-browser/animations'
 import { of } from 'rxjs'
 
 import { WorkspaceService } from '@onecx/angular-integration-interface'
@@ -42,6 +43,7 @@ describe('BookmarkListComponent', () => {
     await TestBed.configureTestingModule({
       imports: [BookmarkListComponent],
       providers: [
+        provideNoopAnimations(),
         ...provideTranslateTestingService({
           de: require('./src/assets/i18n/de.json'),
           en: require('./src/assets/i18n/en.json')
